@@ -40,11 +40,12 @@ namespace dff2dsf
 
                     foreach (var file in files)
                     {
-                        bindingList.Add(new FileToProcess
-                        {
-                            SrcFile = file,
-                            DestFile = Path.ChangeExtension(file, ".dsf")
-                        });
+                        if (Path.GetExtension(file).EndsWith(".dff", StringComparison.CurrentCultureIgnoreCase))
+                            bindingList.Add(new FileToProcess
+                            {
+                                SrcFile = file,
+                                DestFile = Path.ChangeExtension(file, ".dsf")
+                            });
                     }
                 }
             }
