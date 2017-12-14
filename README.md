@@ -1,5 +1,5 @@
 # dff2dsf_gui
-<p> add ui to &http://www.signalyst.com/professional.html (dff2dsf) </p>
+<p> add ui to http://www.signalyst.com/professional.html (dff2dsf) </p>
 <p> requirement .net framework 4 runtime </p>
 <p> not support unicode path, such as chinese characters. <p>
 
