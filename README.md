@@ -3,4 +3,4 @@
 <p> require .net framework 4 runtime </p>
 <p> not support unicode path, such as chinese characters. <p>
 
-_test only .dff files,please backup your music file before running_
+_test only .dff files,please backup your music files before running_
