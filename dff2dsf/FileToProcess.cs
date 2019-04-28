@@ -13,6 +13,7 @@ namespace dff2dsf
         private string _destFile;
         private string _status;
 
+        [DisplayName("Source File")]
         public string SrcFile
         {
             get => _srcFile;
@@ -23,6 +24,7 @@ namespace dff2dsf
             }
         }
 
+        [DisplayName("Preview File")]
         public string DestFile
         {
             get => _destFile;
@@ -33,6 +35,7 @@ namespace dff2dsf
             }
         }
 
+        [DisplayName("Result")]
         public string Status
         {
             get => _status;

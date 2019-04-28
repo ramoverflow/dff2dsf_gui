@@ -14,7 +14,7 @@ namespace dff2dsf
 {
     public partial class Form1 : Form
     {
-        private BindingList<FileToProcess> bindingList = new BindingList<FileToProcess>();
+        private readonly BindingList<FileToProcess> bindingList = new BindingList<FileToProcess>();
 
         public Form1()
         {
@@ -28,7 +28,7 @@ namespace dff2dsf
         {
             using (var fbd = new FolderBrowserDialog())
             {
-                DialogResult result = fbd.ShowDialog();
+                var result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
@@ -70,13 +70,15 @@ namespace dff2dsf
 
                     using (var process = new Process())
                     {
-                        ProcessStartInfo startInfo = new ProcessStartInfo();
-                        startInfo.FileName = Path.GetFullPath(converter);
-                        startInfo.UseShellExecute = false;
-                        startInfo.RedirectStandardError = true;
-                        startInfo.RedirectStandardOutput = true;
-                        startInfo.CreateNoWindow = true;
-                        startInfo.Arguments = $"{tempSrcFile} {tempTargetFile}";
+                        var startInfo = new ProcessStartInfo
+                        {
+                            FileName = Path.GetFullPath(converter),
+                            UseShellExecute = false,
+                            RedirectStandardError = true,
+                            RedirectStandardOutput = true,
+                            CreateNoWindow = true,
+                            Arguments = $"{tempSrcFile} {tempTargetFile}"
+                        };
 
                         process.StartInfo = startInfo;
                         process.Start();
@@ -104,7 +106,11 @@ namespace dff2dsf
                     file.Status = ex.Message;
                 }
             }
+        }
 
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.microsoft.com/en-us/download/details.aspx?id=26999");
         }
     }
 }
