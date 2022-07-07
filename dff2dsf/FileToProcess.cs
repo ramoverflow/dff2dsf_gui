@@ -1,46 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace dff2dsf
-{
-    public class FileToProcess : INotifyPropertyChanged
-    {
+namespace dff2dsf {
+    public class FileToProcess : INotifyPropertyChanged {
         private string _srcFile;
         private string _destFile;
         private string _status;
 
         [DisplayName("Source File")]
-        public string SrcFile
-        {
+        public string SrcFile {
             get => _srcFile;
-            set
-            {
+            set {
                 _srcFile = value;
                 NotifyPropertyChanged("SrcFile");
             }
         }
 
         [DisplayName("Preview File")]
-        public string DestFile
-        {
+        public string DestFile {
             get => _destFile;
-            set
-            {
+            set {
                 _destFile = value;
                 NotifyPropertyChanged("DestFile");
             }
         }
 
         [DisplayName("Result")]
-        public string Status
-        {
+        public string Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 NotifyPropertyChanged("Status");
             }
@@ -48,8 +35,7 @@ namespace dff2dsf
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged(string p)
-        {
+        private void NotifyPropertyChanged(string p) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
         }
 
